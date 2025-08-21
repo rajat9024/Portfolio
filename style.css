@@ -74,6 +74,145 @@ section {
     cursor: pointer;
     display: none;
 }
+/* Container for the bubbles */
+.home {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Individual bubble styling */
+.bubble {
+    position: absolute;
+    border-radius: 50%;
+    animation: float infinite alternate ease-in-out;
+    bottom: -70px; /* Start position from the bottom of the section */
+}
+
+/* The Keyframe Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+
+/* Customizing each bubble for depth effect */
+
+/* Bubbles that appear far away (smaller, slower, more transparent) */
+.bubble:nth-child(1) {
+    left: 10%;
+    width: 90px;
+    height: 90px;
+    background: rgba(14, 238, 255, 0.2);
+    animation-duration: 4s;
+    animation-delay: 0.5s;
+}
+
+.bubble:nth-child(2) {
+    left: 85%;
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 204, 0, 0.2);
+    animation-duration: 5s;
+    animation-delay: 3s;
+}
+
+.bubble:nth-child(3) {
+    left: 45%;
+    width: 88px;
+    height: 88px;
+    background: rgba(255, 105, 180, 0.3);
+    animation-duration: 18s;
+    animation-delay: 1.5s;
+}
+
+.bubble:nth-child(4) {
+    left: 20%;
+    width: 70px;
+    height: 70px;
+    background: rgba(135, 206, 250, 0.2);
+    animation-duration: 22s;
+    animation-delay: 4s;
+}
+
+/* Bubbles that appear in the middle (medium size, speed, and opacity) */
+.bubble:nth-child(5) {
+    left: 70%;
+    width: 55px;
+    height: 55px;
+    background: rgba(50, 205, 50, 0.5);
+    animation-duration: 15s;
+    animation-delay: 2.5s;
+}
+
+.bubble:nth-child(6) {
+    left: 95%;
+    width: 60px;
+    height: 60px;
+    background: rgba(147, 112, 219, 0.5);
+    animation-duration: 17s;
+    animation-delay: 5s;
+}
+
+.bubble:nth-child(7) {
+    left: 5%;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 69, 0, 0.5);
+    animation-duration: 14s;
+    animation-delay: 1s;
+}
+
+.bubble:nth-child(8) {
+    left: 90%;
+    width: 78px;
+    height: 78px;
+    background: rgba(0, 255, 255, 0.6);
+    animation-duration: 14s;
+    animation-delay: 6s;
+}
+
+/* Bubbles that appear close (larger, faster, more opaque) */
+.bubble:nth-child(9) {
+    left: 55%;
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 20, 147, 0.7);
+    animation-duration: 12s;
+    animation-delay: 4.5s;
+}
+
+.bubble:nth-child(10) {
+    left: 60%;
+    width: 65px;
+    height: 65px;
+    background: rgba(255, 255, 0, 0.8);
+    animation-duration: 4s;
+    animation-delay: 2s;
+}
+
+.bubble:nth-child(11) {
+    left: 30%;
+    width: 60px;
+    height: 60px;
+    background: rgba(173, 255, 47, 0.8);
+    animation-duration: 3s;
+    animation-delay: 3.5s;
+}
+
+.bubble:nth-child(12) {
+    left: 40%;
+    width: 90px;
+    height: 90px;
+    background: rgba(0, 191, 255, 0.9);
+    animation-duration: 9s;
+    animation-delay: 0s;
+}
 
 /* Hero Section */
  .home {
@@ -83,6 +222,22 @@ section {
     align-items: center;
     gap: 4rem; /* Adds space between the content and the image */
     padding: 10rem 9% 2rem;
+}
+/* Define the initial hidden state */
+.home-content,
+.social-media,
+.btn {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease-out;
+}
+
+/* The state when the animation is triggered (e.g., via JavaScript) */
+.home-content.animated,
+.social-media.animated,
+.btn.animated {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .home-content {

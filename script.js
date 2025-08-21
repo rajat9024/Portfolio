@@ -6,7 +6,31 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 };
+// script.js
 
+document.addEventListener("DOMContentLoaded", function() {
+    const homeContent = document.querySelector('.home-content');
+    const socialMedia = document.querySelector('.social-media');
+    const contactBtn = document.querySelector('.btn');
+
+    // Add a class to elements when they are in the viewport
+    const observerOptions = {
+        threshold: 0.1 // 10% of the element is visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                observer.unobserve(entry.target); // Stop observing after animation
+            }
+        });
+    }, observerOptions);
+
+    observer.observe(homeContent);
+    observer.observe(socialMedia);
+    observer.observe(contactBtn);
+});
 // Scroll sections and active link
 let sections = document.querySelectorAll('section');
 let navLinks = document.querySelectorAll('header nav a');
